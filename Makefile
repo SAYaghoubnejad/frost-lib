@@ -18,9 +18,9 @@ all: install
 
 # Install target: iterate through each submodule and run `make install`
 install:
-	@for dir in $(SUBMODULES); do \
+	@for dir in $(SUBMODULES); \
+	do \
 		echo "Running 'make install' in $$dir..."; \
-		# Pass flags if the submodule supports variables (e.g., ARGS=...) \
 		$(MAKE) -C $$dir install || exit 1; \
 	done
 
